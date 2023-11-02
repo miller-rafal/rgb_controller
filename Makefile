@@ -28,7 +28,7 @@ SRC = $(PRJ).c
 
 # where to look for external libraries (consisting of .c/.cpp files and .h files)
 # e.g. EXT = ../../adc ../../uart
-EXT =
+EXT = ./pwm ./rgb
 
 ####################################################################################################
 ################ DO NOT MODIFY BELOW LINES UNLESS YOU REALLY KNOW WHAT YOU'RE DOING ################

@@ -12,75 +12,28 @@
 #define MAX 0x64
 #define OFF 0x00
 
-RGB red =
+const RGB colors[] = 
 {
-    .r = 100,
-    .g = 0,
-    .b = 0
-};
-
-RGB green =
-{
-    .r = 0,
-    .g = 100,
-    .b = 0
-};
-
-RGB blue =
-{
-    .r = 0,
-    .g = 0,
-    .b = 100
+    { .r = 0x00, .g = 0x00, .b = 0xff },
+    { .r = 0x00, .g = 0xff, .b = 0x00 },
+    { .r = 0x00, .g = 0xff, .b = 0xff },
+    { .r = 0xff, .g = 0x00, .b = 0x00 },
+    { .r = 0xff, .g = 0x00, .b = 0xff },
+    { .r = 0xff, .g = 0xff, .b = 0x00 },
+    { .r = 0xff, .g = 0xff, .b = 0xff }
 };
 
 int main(void)
 {
     PWM_Initialize();
 
-/*
-    PWM_Write(0, 50);
-    PWM_Write(1, 50);
-    PWM_Write(2, 50);
-    PWM_Write(3, 50);
-
-    while(1){ }
-*/
-    
-    //int8_t red = MAX, green = OFF, blue = OFF;
-    
-    //int8_t delta_r = -1, delta_g = 1, delta_b = 1;
-
     while(1)
     {
-        RGB_Write(&red);
-        _delay_ms(1000);
-
-        RGB_Write(&green);
-        _delay_ms(1000);
-
-        RGB_Write(&blue);
-        _delay_ms(1000);
-/*
-    red += delta_r;
-    green += delta_g;
-    blue += delta_b;
-
-    if(red == OFF || red == MAX)
-    {
-        delta_r = -delta_r;
-    }
-
-    if(green == OFF || green == MAX)
-    {
-        delta_g = -delta_g;
-    }
-
-    if(blue == OFF || blue == MAX)
-    {
-        delta_b = -delta_b;
-    }
-*/
-    //_delay_ms(10);
+        for(uint8_t i = 0; i < 7; i++)
+        {
+            RGB_Write(&colors[i]);
+            _delay_ms(1000);
+        }
     }
 
     return 0;

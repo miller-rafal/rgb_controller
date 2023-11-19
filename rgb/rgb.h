@@ -4,7 +4,6 @@
 #include "../pwm/pwm.h"
 
 // PWM channels used for outputting RGB components
-
 #define R_CHANNEL 0
 #define G_CHANNEL 1
 #define B_CHANNEL 2
